@@ -227,8 +227,8 @@ const ProductList = () => {
             </Dialog>
           </Transition.Root>
 
-          <main className="mx-auto max-w-7xl px-4 sm:px-2 lg:px-8">
-            <div className="flex items-baseline justify-between border-b border-gray-200 pb-2 pt-24">
+          <main className="mx-auto max-w-7xl px-0 sm:px-2 lg:px-8">
+            <div className="flex items-baseline justify-between border-b border-gray-200 pb-2 pt-0">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900">
                 All Products
               </h1>
