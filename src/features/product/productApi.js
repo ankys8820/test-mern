@@ -6,6 +6,7 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
+
 // return by filter
 export function fetchProductsByFilters(filter) {
   // filter = {"category":"smartphone"}

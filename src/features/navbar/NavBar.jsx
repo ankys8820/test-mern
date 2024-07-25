@@ -40,7 +40,7 @@ const NavBar = ({ children }) => {
                     <div className="flex-shrink-0 text-white">
                       <Link to="/">
                         <h1 className="text-red-700 font-bold text-3xl ">
-                          e-Commerce
+                          e-Shop
                         </h1>
                       </Link>
                     </div>
