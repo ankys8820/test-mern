@@ -1,7 +1,7 @@
 // import { useSelector, useDispatch } from "react-redux";
 
 //
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { StarIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -14,6 +14,8 @@ import {
   ChevronRightIcon,
 } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllProducts, fetchAllProductsAsync } from "../productSlice";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -75,8 +77,16 @@ function classNames(...classes) {
 
 const ProductList = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  // const count = useSelector(selectCount);
-  // const dispatch = useDispatch();
+
+  const dispatch = useDispatch();
+
+  const products = useSelector(selectAllProducts);
+
+  // dispatch action {By calling apis}
+  useEffect(() => {
+    dispatch(fetchAllProductsAsync());
+  }, []);
+  //
 
   return (
     <>
