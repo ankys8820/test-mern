@@ -27,40 +27,197 @@ const sortOptions = [
 
 const filters = [
   {
-    id: "color",
-    name: "Color",
+    id: "brand",
+    name: "Brand",
     options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
+      {
+        value: "Essence",
+        label: "Essence",
+        checked: false,
+      },
+      {
+        value: "Glamour Beauty",
+        label: "Glamour Beauty",
+        checked: false,
+      },
+      {
+        value: "Chic Cosmetics",
+        label: "Chic Cosmetics",
+        checked: false,
+      },
+      {
+        value: "Nail Couture",
+        label: "Nail Couture",
+        checked: false,
+      },
+      {
+        value: "Calvin Klein",
+        label: "Calvin Klein",
+        checked: false,
+      },
+      {
+        value: "Chanel",
+        label: "Chanel",
+        checked: false,
+      },
+      {
+        value: "Dior",
+        label: "Dior",
+        checked: false,
+      },
+      {
+        value: "Dolce & Gabbana",
+        label: "Dolce & Gabbana",
+        checked: false,
+      },
+      {
+        value: "Gucci",
+        label: "Gucci",
+        checked: false,
+      },
+      {
+        value: "Annibale Colombo",
+        label: "Annibale Colombo",
+        checked: false,
+      },
+      {
+        value: "Furniture Co.",
+        label: "Furniture Co.",
+        checked: false,
+      },
+      {
+        value: "Knoll",
+        label: "Knoll",
+        checked: false,
+      },
+      {
+        value: "Bath Trends",
+        label: "Bath Trends",
+        checked: true,
+      },
+      {
+        value: "Apple",
+        label: "Apple",
+        checked: false,
+      },
+      {
+        value: "Asus",
+        label: "Asus",
+        checked: false,
+      },
+      {
+        value: "Huawei",
+        label: "Huawei",
+        checked: false,
+      },
+      {
+        value: "Lenovo",
+        label: "Lenovo",
+        checked: false,
+      },
+      {
+        value: "Dell",
+        label: "Dell",
+        checked: false,
+      },
+      {
+        value: "Fashion Trends",
+        label: "Fashion Trends",
+        checked: false,
+      },
+      {
+        value: "Gigabyte",
+        label: "Gigabyte",
+        checked: false,
+      },
+      {
+        value: "Classic Wear",
+        label: "Classic Wear",
+        checked: false,
+      },
+      {
+        value: "Casual Comfort",
+        label: "Casual Comfort",
+        checked: false,
+      },
+      {
+        value: "Urban Chic",
+        label: "Urban Chic",
+        checked: false,
+      },
+      {
+        value: "Nike",
+        label: "Nike",
+        checked: false,
+      },
+      {
+        value: "Puma",
+        label: "Puma",
+        checked: false,
+      },
+      {
+        value: "Off White",
+        label: "Off White",
+        checked: false,
+      },
+      {
+        value: "Fashion Timepieces",
+        label: "Fashion Timepieces",
+        checked: false,
+      },
+      {
+        value: "Longines",
+        label: "Longines",
+        checked: false,
+      },
+      {
+        value: "Rolex",
+        label: "Rolex",
+        checked: false,
+      },
+      {
+        value: "Amazon",
+        label: "Amazon",
+        checked: false,
+      },
     ],
   },
   {
     id: "category",
     name: "Category",
     options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
-      { value: "travel", label: "Travel", checked: true },
-      { value: "organization", label: "Organization", checked: false },
-      { value: "accessories", label: "Accessories", checked: false },
+      { value: "beauty", label: "beauty", checked: false },
+      { value: "fragrances", label: "fragrances", checked: false },
+      { value: "furniture", label: "furniture", checked: true },
+      { value: "groceries", label: "groceries", checked: false },
+      { value: "home-decoration", label: "home-decoration", checked: false },
+      {
+        value: "kitchen-accessories",
+        label: "kitchen-accessories",
+        checked: false,
+      },
+      { value: "laptops", label: "laptops", checked: false },
+      { value: "mens-shirts", label: "mens-shirts", checked: false },
+      { value: "mens-watches", label: "mens-watches", checked: false },
+      {
+        value: "mobile-accessories",
+        label: "mobile-accessories",
+        checked: false,
+      },
     ],
   },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
-    ],
-  },
+  // {
+  //   id: "size",
+  //   name: "Size",
+  //   options: [
+  //     { value: "2l", label: "2L", checked: false },
+  //     { value: "6l", label: "6L", checked: false },
+  //     { value: "12l", label: "12L", checked: false },
+  //     { value: "18l", label: "18L", checked: false },
+  //     { value: "20l", label: "20L", checked: false },
+  //     { value: "40l", label: "40L", checked: true },
+  //   ],
+  // },
 ];
 
 function classNames(...classes) {
@@ -85,7 +242,7 @@ const ProductList = () => {
   // dispatch action {By calling apis}
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
-  }, []);
+  }, [dispatch]);
   //
 
   return (
@@ -361,13 +518,13 @@ const ProductList = () => {
                                 <div className="mt-4 flex justify-between">
                                   <div>
                                     <h3 className="text-sm text-gray-700">
-                                      <a href={product.thumbnail}>
+                                      <Link to={product.thumbnail}>
                                         <span
                                           aria-hidden="true"
                                           className="absolute inset-0"
                                         />
                                         {product.title}
-                                      </a>
+                                      </Link>
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-500">
                                       <StarIcon className="w-6 h-6 inline" />
@@ -378,7 +535,7 @@ const ProductList = () => {
                                   </div>
                                   <div className="">
                                     <p className="text-sm block font-medium text-gray-900">
-                                      ₹
+                                      $
                                       {Math.round(
                                         product.price *
                                           (1 - product.discountPercentage / 100)
