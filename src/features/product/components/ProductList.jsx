@@ -15,7 +15,11 @@ import {
 } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllProducts, fetchAllProductsAsync } from "../productSlice";
+import {
+  selectAllProducts,
+  fetchAllProductsAsync,
+  fetchProductsByFiltersAsync,
+} from "../productSlice";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -235,6 +239,7 @@ function classNames(...classes) {
 
 const ProductList = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [filter, setFilter] = useState({});
 
   const dispatch = useDispatch();
 
@@ -244,8 +249,15 @@ const ProductList = () => {
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
   }, [dispatch]);
-  //
 
+  //  #handleFilters
+  const handleFilter = (e, section, option) => {
+    const newFilter = { ...filter, [section.id]: option.value };
+    setFilter(newFilter);
+    dispatch(fetchProductsByFiltersAsync(newFilter));
+    console.log(section.id, option.value);
+  };
+  //
   return (
     <>
       <div className="bg-white">
@@ -477,8 +489,9 @@ const ProductList = () => {
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="checkbox"
+                                    // filter checkbox
                                     onChange={(e) =>
-                                      console.log(e.target.value)
+                                      handleFilter(e, section, option)
                                     }
                                     defaultChecked={option.checked}
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"

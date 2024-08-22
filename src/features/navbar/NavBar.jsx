@@ -31,7 +31,7 @@ const NavBar = ({ children }) => {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-900">
+        <Disclosure as="nav" className="bg-[#003333]">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@ const NavBar = ({ children }) => {
                   <div className="flex items-center">
                     <div className="flex-shrink-0 text-white">
                       <Link to="/">
-                        <h1 className="text-red-700 font-bold text-3xl ">
+                        <h1 className="text-[#1affff] font-bold text-3xl ">
                           e-Shop
                         </h1>
                       </Link>
